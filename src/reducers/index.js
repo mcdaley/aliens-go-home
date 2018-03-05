@@ -1,13 +1,20 @@
 //-----------------------------------------------------------------------------
 // src/reducers/index.js
 //-----------------------------------------------------------------------------
+import { MOVE_OBJECTS }   from '../actions'
+import moveObjects        from './moveObjects'
 
 const initialState = {
-  message: `it's easy to integrate React and Redux, hopefully?`
+  angle: 45,
 }
 
-function reducer(state = initialState) {
-  return state
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case MOVE_OBJECTS:
+      return moveObjects(state, action)
+    default:
+      return state
+  }
 }
 
 export default reducer
