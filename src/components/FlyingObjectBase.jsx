@@ -21,7 +21,7 @@ const FlyingObjectBase = (props) => {
   )
 }
 
-FlyingObjectBase.PropTypes = {
+FlyingObjectBase.propTypes = {
   position: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,

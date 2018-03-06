@@ -23,7 +23,7 @@ const CannonBall = (props) => {
   )
 }
 
-CannonBall.PropTypes = {
+CannonBall.propTypes = {
   position: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,

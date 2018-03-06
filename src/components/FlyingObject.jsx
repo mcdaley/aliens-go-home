@@ -13,7 +13,7 @@ const FlyingObject = props => (
   </g>
 )
 
-FlyingObject.PropTypes = {
+FlyingObject.propTypes = {
   position: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired

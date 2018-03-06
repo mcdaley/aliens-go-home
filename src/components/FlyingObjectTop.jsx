@@ -7,8 +7,8 @@ import { pathFromBezierCurve }  from '../utils/formulas'
 
 const FlyingObjectTop = (props) => {
   const style = {
-    fill:   '#b6b6b6',
-    stroke: '#7d7d7d',
+    fill:     '#b6b6b6',
+    stroke:   '#7d7d7d',
   }
 
   const baseWidth = 40
