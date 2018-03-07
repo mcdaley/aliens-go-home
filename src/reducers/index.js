@@ -6,9 +6,11 @@ import startGame                      from './startGame'
 import moveObjects                    from './moveObjects'
 
 const initialGameState = {
-  started:  false,
-  kills:    0,
-  lives:    3,
+  started:              false,
+  kills:                0,
+  lives:                3,
+  flyingObjects:        [],
+  lastObjectCreatedAt:  new Date()
 }
 
 const initialState = {
