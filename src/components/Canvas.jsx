@@ -14,6 +14,9 @@ import Heart        from './Heart'
 import StartGame    from './StartGame'
 import Title        from './Title'
 
+import Login        from './Login'
+import { signIn }   from 'auth0-web'
+
 const Canvas = (props) => {
   const gameHeight  = 1200
   const viewBox     = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
@@ -41,8 +44,9 @@ const Canvas = (props) => {
       
       { !props.gameState.started &&
         <g>
-          <StartGame    onClick  = { () => props.startGame() } />
+          <StartGame  onClick = { () => props.startGame() } />
           <Title />
+          <Login      authenticate = {signIn} />
         </g>
       }
 
