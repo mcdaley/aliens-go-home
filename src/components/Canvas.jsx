@@ -34,6 +34,15 @@ const Canvas = (props) => {
     { id: 'h8', maxScore: 146, name: 'Sebastián Peyrott', picture: 'https://twitter.com/speyrott/profile_image', },
   ]
 
+  const lives = []
+  for(let i = 0; i < props.gameState.lives; i++) {
+    const heartPosition = {
+      x:  -180 - (i * 70),
+      y:  35,
+    }
+    lives.push(<Heart key={i} position={heartPosition} />)
+  }
+
   return (
     <svg
       id                  = "aliens-go-home-canvas"
@@ -60,8 +69,7 @@ const Canvas = (props) => {
       <CannonPipe   rotation = {props.angle} />
       <CannonBase />
       
-      <CurrentScore score    = {15} />
-      <Heart        position = { {x: -300, y:   35} } />
+      <CurrentScore score    = {props.gameState.kills} />
       
       { !props.gameState.started &&
         <g>
@@ -75,19 +83,14 @@ const Canvas = (props) => {
         </g>
       }
 
-      { props.gameState.started &&
-        <g>
-          <FlyingObject position = { {x: -150, y: -300} } />
-          <FlyingObject position = { {x:  150, y: -300} } />
-        </g>
-      }
-
       {props.gameState.flyingObjects.map(flyingObject => (
         <FlyingObject
           key       = {flyingObject.id}
           position  = {flyingObject.position}
         />
       ))}
+
+      {lives}
     </svg>
   )
 }
