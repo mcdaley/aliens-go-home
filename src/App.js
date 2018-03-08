@@ -16,6 +16,12 @@ Auth0.configure({
 })
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.shoot = this.shoot.bind(this)
+  }
+
   componentDidMount() {
     const self = this
 
@@ -40,6 +46,10 @@ class App extends Component {
     this.canvasMousePosition = getCanvasPosition(event)
   }
 
+  shoot() {
+    this.props.shoot(this.canvasMousePosition)
+  }
+
   render() {
     return (
       <Canvas 
@@ -47,6 +57,7 @@ class App extends Component {
         gameState   = {this.props.gameState}
         startGame   = {this.props.startGame}
         trackMouse  = {event => this.trackMouse(event)}
+        shoot       = {this.shoot}
       />
     );
   }
@@ -68,6 +79,7 @@ App.propTypes = {
   }).isRequired,
   startGame:    PropTypes.func.isRequired,
   moveObjects:  PropTypes.func.isRequired,
+  shoot:        PropTypes.func.isRequired,
 };
 
 export default App;

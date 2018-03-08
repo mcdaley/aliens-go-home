@@ -40,6 +40,7 @@ const Canvas = (props) => {
       preserveAspectRatio = "xMaxYMax none"
       onMouseMove         = {props.trackMouse}
       viewBox             = {viewBox}
+      onClick             = {props.shoot}
     >
       <defs>
         <filter id="shadow">
@@ -48,11 +49,18 @@ const Canvas = (props) => {
       </defs>
       <Sky />
       <Ground />
+
+      {props.gameState.cannonBalls.map(cannonBall => (
+        <CannonBall
+          key       = {cannonBall.id}
+          position  = {cannonBall.position}
+        />
+      ))}
+
       <CannonPipe   rotation = {props.angle} />
       <CannonBase />
+      
       <CurrentScore score    = {15} />
-    
-      <CannonBall   position = { {x:    0, y: -100} } />
       <Heart        position = { {x: -300, y:   35} } />
       
       { !props.gameState.started &&
